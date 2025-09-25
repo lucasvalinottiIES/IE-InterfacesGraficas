@@ -20,12 +20,10 @@ public abstract class Personaje {
     public String habilidad;
     public int ataque;
 
-    public Personaje(String apodo, int salud, int ataque, int defensa, String habilidad, int bendicion, String arma) {
+    public Personaje(String apodo, int salud, int ataque, int defensa, int bendicion) {
         this.salud = salud;
         this.defensa = defensa;
         this.bendicion = bendicion;
-        this.arma = arma;
-        this.habilidad = habilidad;
         this.ataque = ataque;
     }
 
