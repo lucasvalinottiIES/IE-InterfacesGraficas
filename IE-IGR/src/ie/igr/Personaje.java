@@ -41,7 +41,7 @@ public abstract class Personaje {
     }
     
       public abstract void invocarArma();
-      
+      public abstract void cargarBendicion();
       public abstract void cargarHabilidad(String habilidad);
 
       
