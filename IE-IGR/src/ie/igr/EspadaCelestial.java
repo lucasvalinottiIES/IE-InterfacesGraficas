@@ -11,16 +11,19 @@ import ie.igr.Arma;
  * @author Alumno
  */
 public class EspadaCelestial extends Arma{
-    public EspadaCelestial(){
-        super("Espada Celestial", 15);
+    public EspadaCelestial(Personaje heroe){
+        super("Espada Celestial", 10);
+        heroe.incrementarAtaque(danioExtra);
+        System.out.println(this.nombre + " brinda " + danioExtra + " de puntos de ataque.");
     }
+    
     @Override
-    public void usarEfectoEspecial(Personaje objetivo) {
-        // Cura y da defensa extra (buff)
-        int curacion = 20;
-        int defensaExtra = 5;
-        objetivo.vida += curacion;
-        objetivo.defensa += defensaExtra;
-        System.out.println(objetivo.nombre + " se cura " + curacion + " y gana " + defensaExtra + " de defensa con la Espada Celestial.");
+    public void usarEfectoEspecial(Personaje portador){
+        int curacion = 8;
+        int incrementoDefensa = 3;
+        portador.curarse(curacion);
+        portador.incrementarDefensa(incrementoDefensa);
+        System.out.println(this.nombre + " se cura " + curacion + " puntos de vida.");
+        System.out.println(this.nombre + " incrementa su defensa en: " + incrementoDefensa + " puntos.");
     }
 }

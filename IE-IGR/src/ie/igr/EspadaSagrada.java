@@ -11,14 +11,16 @@ import ie.igr.Arma;
  * @author Alumno
  */
 public class EspadaSagrada extends Arma{
-    public EspadaSagrada(){
-        super("Espada Sagrada",10);
+    public EspadaSagrada(Personaje heroe){
+        super("Espada Sagrada", 7);
+        heroe.incrementarAtaque(danioExtra);
+        System.out.println(this.nombre + " brinda " + danioExtra + " de puntos de ataque.");
     }
+    
     @Override
-    public void usarEfectoEspecial(Personaje objetivo) {
-        // Cura al portador
-        int curacion = 15;
-        objetivo.vida += curacion;
-        System.out.println(objetivo.nombre + " se cura " + curacion + " puntos con la Espada Sagrada.");
+    public void usarEfectoEspecial(Personaje portador){
+        int curacion = 5;
+        portador.curarse(curacion);
+        System.out.println(this.nombre + " se cura " + curacion + " puntos de vida.");
     }
 }

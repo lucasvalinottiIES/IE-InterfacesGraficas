@@ -12,11 +12,14 @@ import ie.igr.Arma;
  */
 public class HozOxidada extends Arma{
     
-    public HozOxidada(){
-        super("hoz Oxidada",5);
+    public HozOxidada(Personaje villano){
+        super("Hoz Oxidada", 4);
+        villano.incrementarAtaque(danioExtra);
+        System.out.println(this.nombre + " brinda " + danioExtra + " de puntos de ataque.");
     }
+    
     @Override
-    public void usarEfectoEspecial(Personaje objetivo) {
-        // Solo daño extra
+    public void usarEfectoEspecial(Personaje portador){
+        System.out.println(this.nombre + " no tiene efectos especiales.");
     }
 }

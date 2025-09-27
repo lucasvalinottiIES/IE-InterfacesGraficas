@@ -11,13 +11,20 @@ import ie.igr.Arma;
  * @author Alumno
  */
 public class HozVenenosa extends Arma{
-    public HozVenenosa(){
-        super("Hoz Venenosa",10);
+    public HozVenenosa(Personaje villano) {
+        super("Hoz Venenosa", 6); // Daño base mayor que la espada
+        villano.incrementarAtaque(danioExtra);
+        System.out.println(this.nombre + " brinda " + danioExtra + " de puntos de ataque.");
     }
+
     @Override
-    public void usarEfectoEspecial(Personaje objetivo) {
-        // Aplica veneno (pierde 5 vida extra en los próximos 2 turnos)
-        System.out.println(objetivo.nombre + " ha sido envenenado.");
-        // Para simplificar, se podría implementar un sistema de veneno en batalla (no hecho aquí)
+    public void usarEfectoEspecial(Personaje portador) {
+        int incrementoAtaque = 5;  // aumento por el filo
+        int incrementoVeneno = 4;  // aumento adicional “por veneno”
+
+        portador.incrementarAtaque(incrementoAtaque + incrementoVeneno);
+
+        System.out.println(this.nombre + " incrementa su ataque en " + incrementoAtaque + " puntos.");
+        System.out.println(this.nombre + " potencia su filo venenoso aumentando " + incrementoVeneno + " puntos extra de ataque.");
     }
 }

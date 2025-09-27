@@ -12,11 +12,14 @@ import ie.igr.Arma;
  */
 public class EspadaSimple extends Arma {
     
-    public EspadaSimple(){
-        super("Espada Simple",5);
+    public EspadaSimple(Personaje heroe){
+        super("Espada Simple", 5);
+        heroe.incrementarAtaque(danioExtra);
+        System.out.println(this.nombre + " brinda " + danioExtra + " de puntos de ataque.");
     }
+    
     @Override
-    public void usarEfectoEspecial(Personaje objetivo) {
-        // Solo daño extra
+    public void usarEfectoEspecial(Personaje portador){
+        System.out.println(this.nombre + " no tiene efectos especiales.");
     }
 }
