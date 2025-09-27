@@ -24,7 +24,7 @@ public class CastigoBendito extends Habilidad{
         
         
 
-        System.out.println("⚡ " + lanzador.GetApodo() + " lanza " + nombre + "!");
+        System.out.println(lanzador.GetApodo() + " lanza " + nombre + "!");
         System.out.println("El rayo divino inflige " + dano + " puntos de daño directo a " + objetivo.GetApodo() + ".");
         
         // La bendicion vuelve a la mitad despues de lanzarlo
