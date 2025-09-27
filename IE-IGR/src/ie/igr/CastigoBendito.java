@@ -17,8 +17,7 @@ public class CastigoBendito extends Habilidad{
     public void ejecutar(Personaje lanzador, Personaje objetivo) {
         int dano = lanzador.GetSalud() / 2; // 50% de la vida actual del héroe
         objetivo.recibirDano(dano);
-        
-        objetivo.recibirDano(dano);
+
         if (objetivo.GetSalud() < 0) {
             objetivo.salud = 0;
         }
@@ -26,11 +25,11 @@ public class CastigoBendito extends Habilidad{
         
 
         System.out.println("⚡ " + lanzador.GetApodo() + " lanza " + nombre + "!");
-        System.out.println("💥 El rayo divino inflige " + dano + " puntos de daño directo a " + objetivo.GetApodo() + ".");
+        System.out.println("El rayo divino inflige " + dano + " puntos de daño directo a " + objetivo.GetApodo() + ".");
         
         // La bendicion vuelve a la mitad despues de lanzarlo
         lanzador.bendicion = 50;
-        System.out.println("💥 El rayo divino reduce la bendicion del heroe al 50%");
+        System.out.println("El rayo divino reduce la bendicion del heroe al 50%");
         lanzador.habilidad = null;
         
     }
