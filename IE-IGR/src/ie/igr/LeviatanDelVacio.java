@@ -23,8 +23,8 @@ public class LeviatanDelVacio extends Habilidad{
             objetivo.salud = 0;
         }
 
-        System.out.println("🌌 " + lanzador.GetApodo() + " invoca al " + nombre + "!");
-        System.out.println("💀 El Leviatán desata su furia e inflige " + dano + " puntos de daño a " + objetivo.GetApodo() + ".");
+        System.out.println(lanzador.GetApodo() + " invoca al " + nombre + "!");
+        System.out.println("El Leviatán desata su furia e inflige " + dano + " puntos de daño a " + objetivo.GetApodo() + ".");
 
         
         this.turnosCarga = 3;
