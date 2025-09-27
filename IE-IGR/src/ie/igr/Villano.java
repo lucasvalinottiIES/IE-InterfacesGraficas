@@ -10,15 +10,25 @@ package ie.igr;
  */
 public class Villano extends Personaje {
 
+    private String[] armasInvocadas = new String[3];
+    private int habilidadesUsadas;
+    
     public Villano(int salud, int defensa, int ataque) {
         super(salud, defensa, ataque);
     }
 
+    public String[] getArmasInvocadas(){
+        return armasInvocadas;
+    }
+    public int getHabilidadesUsadas(){
+        return habilidadesUsadas;
+    }
+    
     @Override
     public void atacar(Personaje villano, Personaje heroe) {
 
         invocarArma();
-
+        
         if (this.habilidad != null) {
             if (this.habilidad.estaDisponible()) {
                 this.habilidad.ejecutar(villano, heroe);
@@ -62,20 +72,24 @@ public class Villano extends Personaje {
         if (bendicion >= 100 && habilidad == null) {
             System.out.println("🌑 " + GetApodo() + " ha alcanzado el 100% de corrupción... ¡Puede invocar al Leviatán!");
             cargarHabilidad();
+            habilidadesUsadas++;
             return; 
         }
 
         if (bendicion >= 20 && arma == null) {
             arma = new HozOxidada(this);
             System.out.println("🪓 " + GetApodo() + " invoca " + arma.getNombre() + "!");
+            armasInvocadas[0] = "Hoz Oxidada";
         } 
         else if (bendicion >= 40 && arma != null && arma.getNombre().equals("Hoz Oxidada")) {
             arma = new HozVenenosa(this);
             System.out.println("🪓 " + GetApodo() + " invoca " + arma.getNombre() + "!");
+            armasInvocadas[1] = "Hoz Venenosa";
         } 
         else if (bendicion >= 70 && arma != null && arma.getNombre().equals("Hoz Venenosa")) {
             arma = new HozMortifera(this);
             System.out.println("🪓 " + GetApodo() + " invoca " + arma.getNombre() + "!");
+            armasInvocadas[2] = "Hoz Mortifera";
         }
     }
 

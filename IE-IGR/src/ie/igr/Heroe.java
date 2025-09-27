@@ -4,7 +4,10 @@
  */
 package ie.igr;
 public class Heroe extends Personaje {
-
+    
+    private String[] armasInvocadas = new String[3];
+    private int habilidadesUsadas;
+    
     public Heroe() {
         super();
     }
@@ -13,6 +16,13 @@ public class Heroe extends Personaje {
         super(salud, defensa, ataque);
     }
 
+    public String[] getArmasInvocadas(){
+        return armasInvocadas;
+    }
+    public int getHabilidadesUsadas(){
+        return habilidadesUsadas;
+    }
+    
     @Override
     public void atacar(Personaje heroe, Personaje villano) {
 
@@ -58,6 +68,7 @@ public class Heroe extends Personaje {
         if (bendicion >= 100 && habilidad == null) {
             System.out.println("⚡ " + GetApodo() + " ha alcanzado el 100% de bendición. ¡Puede usar su habilidad suprema!");
             cargarHabilidad();
+            habilidadesUsadas++;
             return; // 👈 no seguimos con armas si ya tiene habilidad
         }
 
@@ -65,14 +76,17 @@ public class Heroe extends Personaje {
         if (bendicion >= 20 && arma == null) {
             arma = new EspadaSimple(this);
             System.out.println("🔮 " + GetApodo() + " invoca " + arma.getNombre() + "!");
+            armasInvocadas[0] = "Espada Simple";
         } // 🗡️ Evoluciona a Espada Sagrada (solo si la actual es Simple)
         else if (bendicion >= 40 && arma != null && arma.getNombre().equals("Espada Simple")) {
             arma = new EspadaSagrada(this);
             System.out.println("🔮 " + GetApodo() + " invoca " + arma.getNombre() + "!");
+            armasInvocadas[2] = "Espada Sagrada";
         } // 🗡️ Evoluciona a Espada Celestial (solo si la actual es Sagrada)
         else if (bendicion >= 70 && arma != null && arma.getNombre().equals("Espada Sagrada")) {
             arma = new EspadaCelestial(this);
             System.out.println("🔮 " + GetApodo() + " invoca " + arma.getNombre() + "!");
+            armasInvocadas[2] = "Espada Celestial";
         }
     }
 

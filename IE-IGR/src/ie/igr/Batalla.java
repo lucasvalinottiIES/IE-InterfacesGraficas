@@ -21,7 +21,7 @@ public class Batalla {
     }
 
 
-    public void iniciarBatalla() {
+    public Object[] iniciarBatalla() {
         System.out.println("⚔️  ¡Comienza la batalla entre " + heroe.GetApodo() + " y " + villano.GetApodo() + "!");
         System.out.println("--------------------------------------------------");
 
@@ -29,7 +29,9 @@ public class Batalla {
             siguienteTurno();
         }
 
-        chequearVictoria();
+        String ganador = chequearVictoria();
+        Object[] info = new Object[]{heroe,villano,ganador,this.turnosEmpleados};
+        return info;
     }
 
 
@@ -58,14 +60,17 @@ public class Batalla {
         turnosEmpleados++;
     }
 
-    public void chequearVictoria() {
-        System.out.println("La batalla ha terminado.");
+    public String chequearVictoria() {
+        System.out.println("🏁 La batalla ha terminado.");
         if (heroe.estaVivo() && !villano.estaVivo()) {
-            System.out.println("¡" + heroe.GetApodo() + " ha derrotado a " + villano.GetApodo() + " en " + turnosEmpleados + " turnos!");
+            System.out.println("🎉 ¡" + heroe.GetApodo() + " ha derrotado a " + villano.GetApodo() + " en " + turnosEmpleados + " turnos!");
+            return heroe.GetApodo();
         } else if (villano.estaVivo() && !heroe.estaVivo()) {
-            System.out.println(" ¡" + villano.GetApodo() + " ha vencido a " + heroe.GetApodo() + " en " + turnosEmpleados + " turnos!");
+            System.out.println("☠️  ¡" + villano.GetApodo() + " ha vencido a " + heroe.GetApodo() + " en " + turnosEmpleados + " turnos!");
+            return villano.GetApodo();
         } else {
-            System.out.println("Ambos han caído al mismo tiempo. ¡Empate!");
+            System.out.println("🤝 Ambos han caído al mismo tiempo. ¡Empate!");
+            return "Empate";
         }
     }
 
