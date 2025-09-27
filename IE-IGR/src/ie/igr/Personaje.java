@@ -12,7 +12,6 @@ import java.util.Scanner;
  */
 public abstract class Personaje {
     
-    
     protected String apodo;
     protected int salud;
     protected int defensa;
