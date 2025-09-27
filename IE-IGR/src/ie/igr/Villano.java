@@ -14,7 +14,6 @@ public class Villano extends Personaje {
         super(salud, defensa, ataque);
     }
 
-    // ✅ Ataque del villano: invoca hoz, aplica efecto, luego ataca
     @Override
     public void atacar(Personaje villano, Personaje heroe) {
 
@@ -32,7 +31,7 @@ public class Villano extends Personaje {
 
         if (arma != null) {
             System.out.println("☠️ " + GetApodo() + " activa el efecto especial de " + arma.getNombre() + "!");
-            arma.usarEfectoEspecial(this); // 💥 efecto negativo sobre el héroe
+            arma.usarEfectoEspecial(this); 
         }
 
         int danoBase = this.ataque - heroe.defensa;
@@ -40,9 +39,9 @@ public class Villano extends Personaje {
             danoBase = 0;
         }
 
-        // 20% de probabilidad de crítico
+      
         if (Math.random() < 0.2) {
-            danoBase *= 2; // aumenta el daño en un 50%
+            danoBase *= 2;
             this.bendicion += 10;
             System.out.println("🔥 ¡ATAQUE CRÍTICO! El daño aumenta a " + danoBase + " puntos! Y gana 10% mas de energía del vacío.");
         }
@@ -53,36 +52,33 @@ public class Villano extends Personaje {
         }
         System.out.println("⚔️ " + this.GetApodo() + " ataca a " + heroe.GetApodo() + " causando " + danoBase + " de daño.");
 
-        // 4️⃣ Incrementar maldición tras el ataque
+        
         cargarBendicion();
     }
 
-    // ✅ Invoca la hoz según el porcentaje de bendición
     @Override
     public void invocarArma() {
         // 🌀 Habilidad suprema
         if (bendicion >= 100 && habilidad == null) {
             System.out.println("🌑 " + GetApodo() + " ha alcanzado el 100% de corrupción... ¡Puede invocar al Leviatán!");
             cargarHabilidad();
-            return; // 👈 salimos para evitar que invoque armas si ya tiene habilidad
+            return; 
         }
 
-        // 🪓 Invocar Hoz Oxidada (solo si aún no hay arma)
         if (bendicion >= 20 && arma == null) {
             arma = new HozOxidada(this);
             System.out.println("🪓 " + GetApodo() + " invoca " + arma.getNombre() + "!");
-        } // ☠️ Evoluciona a Hoz Venenosa (solo si la actual es Oxidada)
+        } 
         else if (bendicion >= 40 && arma != null && arma.getNombre().equals("Hoz Oxidada")) {
             arma = new HozVenenosa(this);
             System.out.println("🪓 " + GetApodo() + " invoca " + arma.getNombre() + "!");
-        } // 💀 Evoluciona a Hoz Mortífera (solo si la actual es Venenosa)
+        } 
         else if (bendicion >= 70 && arma != null && arma.getNombre().equals("Hoz Venenosa")) {
             arma = new HozMortifera(this);
             System.out.println("🪓 " + GetApodo() + " invoca " + arma.getNombre() + "!");
         }
     }
 
-    // ✅ Incrementar “bendición del vacío” (maldición)
     @Override
     public void cargarBendicion() {
         int incremento = 10;
@@ -94,7 +90,6 @@ public class Villano extends Personaje {
         System.out.println("🩸 " + GetApodo() + " incrementa su energía del vacío a " + bendicion + "%.");
     }
 
-    // ✅ Inicializar la habilidad suprema si llega al 100%
     @Override
     public void cargarHabilidad() {
         if (bendicion >= 100) {
