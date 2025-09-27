@@ -30,7 +30,7 @@ public class Heroe extends Personaje {
 
         if (arma != null) {
             System.out.println("✨ " + GetApodo() + " utiliza el efecto especial de " + arma.getNombre() + "!");
-            arma.usarEfectoEspecial(this); // ✅ ahora aplicamos el efecto AL ENEMIGO
+            arma.usarEfectoEspecial(this);
         }
 
         int danoBase = this.ataque - villano.defensa;
@@ -39,7 +39,7 @@ public class Heroe extends Personaje {
         }
 
         if (Math.random() < 0.2) {
-            danoBase *= 2; // aumenta el daño en un 50%
+            danoBase *= 2; 
             this.bendicion += 10;
             System.out.println("🔥 ¡ATAQUE CRÍTICO! El daño aumenta a " + danoBase + " puntos! Y gana 10% mas de bendicion celestial.");
         }
