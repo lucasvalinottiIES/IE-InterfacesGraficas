@@ -18,15 +18,7 @@ public abstract class Habilidad {
     public String getNombre() {
         return nombre;
     }
-
-    /**
-     * Activa la habilidad.
-     * @param usuario El personaje que la usa
-     * @param enemigo El personaje objetivo
-     * @param turnoActual El turno en curso (necesario para Leviatán)
-     * @return Valor adicional del efecto (ej: curación positiva, veneno negativo, 0 si no aplica)
-     */
-    public abstract int activar(Personaje usuario, Personaje enemigo, int turnoActual);
+    public abstract int activar();
 }
 
 
