@@ -20,7 +20,9 @@ public abstract class Personaje {
     public String habilidad;
     public int ataque;
 
-    public Personaje(String apodo, int salud, int ataque, int defensa, int bendicion) {
+
+    public Personaje(String apodo, int salud, int ataque, int defensa, String habilidad, int bendicion, String arma) {
+        this.apodo = apodo;
         this.salud = salud;
         this.defensa = defensa;
         this.bendicion = bendicion;
@@ -44,30 +46,33 @@ public abstract class Personaje {
 
       
        
+    public boolean validarApodo(String apodo) {
+        if (apodo == null || apodo.isEmpty()) {
+            System.out.println("El apodo no puede estar vacío.");
+            return false;
+        }
+        if (apodo.length() < 3 || apodo.length() > 10) {
+            System.out.println("El apodo debe tener entre 3 y 10 caracteres.");
+            return false;
+        }
+        if (!apodo.matches("[a-zA-Z ]+")) {
+            System.out.println("El apodo solo puede contener letras y espacios.");
+            return false;
+        }
+        return true;
+    }
+
+    // Método para ingresar apodo por consola
     public void ingresarApodo() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Ingresá el apodo: ");
-        this.apodo = sc.nextLine();
+        String entrada;
+        do {
+            System.out.print("Ingresá tu apodo: ");
+            entrada = sc.nextLine();
+        } while (!validarApodo(entrada));
+        this.apodo = entrada;
+        System.out.println("Apodo válido asignado: " + this.apodo);
     }
-    
-     public boolean validarApodo(String apodo) {
-    if (apodo == null || apodo.isEmpty()) {
-        System.out.println("El apodo no puede estar vacío.");
-        return false;
-    }
-    if (apodo.length() > 12) {
-        System.out.println("El apodo no puede tener más de 12 caracteres.");
-        return false;
-    }
-    if (!apodo.matches("[a-zA-Z0-9]+")) {
-        System.out.println("El apodo solo puede contener letras y números.");
-        return false;
-    }
-    // Si pasó todas las pruebas
-    this.apodo = apodo;
-    System.out.println("Apodo válido: " + apodo);
-    return true;
-}
    
         
 
