@@ -8,27 +8,30 @@ package ie.igr;
  *
  * @author Juani
  */
-public class CastigoBendito extends Habilidad {
-
+public class CastigoBendito extends Habilidad{
     public CastigoBendito() {
-        super("Castigo Bendito");
+        super("Castigo Bendito", 0); // se puede usar inmediatamente al 100%
     }
 
     @Override
-    public int activar(Personaje usuario, Personaje enemigo, int turnoActual) {
-        if (usuario.getBendicion() == 100) {
-            int danio = usuario.getVida() / 2;
-            enemigo.recibirDanio(danio);
-
-            int curacion = 20;
-            usuario.recibirCuracion(curacion);
-
-            System.out.println(usuario.getNombre() + " activa " + nombre +
-                               " inflige " + danio + " de daño y se cura " + curacion + " puntos.");
-            usuario.resetearBendicion();
-            return curacion;
+    public void ejecutar(Personaje lanzador, Personaje objetivo) {
+        int dano = lanzador.GetSalud() / 2; // 50% de la vida actual del héroe
+        objetivo.recibirDano(dano);
+        
+        objetivo.recibirDano(dano);
+        if (objetivo.GetSalud() < 0) {
+            objetivo.salud = 0;
         }
-        System.out.println("No se puede activar " + nombre + " (bendición insuficiente).");
-        return 0;
+        
+        
+
+        System.out.println("⚡ " + lanzador.GetApodo() + " lanza " + nombre + "!");
+        System.out.println("💥 El rayo divino inflige " + dano + " puntos de daño directo a " + objetivo.GetApodo() + ".");
+        
+        // La bendicion vuelve a la mitad despues de lanzarlo
+        lanzador.bendicion = 50;
+        System.out.println("💥 El rayo divino reduce la bendicion del heroe al 50%");
+        lanzador.habilidad = null;
+        
     }
 }
