@@ -103,9 +103,9 @@ public class IEIGR {
                 opcion = sc.nextInt(); 
                 if (opcion == 1) {valido = true; jugarDeNuevo = true;}
                 else if (opcion == 0){valido = true; jugarDeNuevo = false;}
-                else {System.out.println("Error: debe ingresar una SI o NO."); valido = false;}
+                else {System.out.println("Error: debe ingresar 1 (Si) o 0 (No)."); valido = false;}
             } catch (InputMismatchException e) {
-                System.out.println("Error: debe ingresar 1 (Si) o 0 (No)");
+                System.out.println("Error: debe ingresar 1 (Si) o 0 (No).");
                 sc.nextLine();
             }
         }
