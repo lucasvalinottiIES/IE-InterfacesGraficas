@@ -21,6 +21,6 @@ public class EspadaSagrada extends Arma{
     public void usarEfectoEspecial(Personaje portador){
         int curacion = 5;
         portador.curarse(curacion);
-        System.out.println(this.nombre + " se cura " + curacion + " puntos de vida.");
+        System.out.println(this.nombre + " cura " + curacion + " puntos de vida.");
     }
 }

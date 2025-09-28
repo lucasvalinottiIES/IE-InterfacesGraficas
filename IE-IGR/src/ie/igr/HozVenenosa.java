@@ -24,7 +24,7 @@ public class HozVenenosa extends Arma{
 
         portador.incrementarAtaque(incrementoAtaque + incrementoVeneno);
 
-        System.out.println(this.nombre + " incrementa su ataque en " + incrementoAtaque + " puntos.");
+        System.out.println(this.nombre + " incrementa ataque en " + incrementoAtaque + " puntos.");
         System.out.println(this.nombre + " potencia su filo venenoso aumentando " + incrementoVeneno + " puntos extra de ataque.");
     }
 }

@@ -23,7 +23,7 @@ public class EspadaCelestial extends Arma{
         int incrementoDefensa = 3;
         portador.curarse(curacion);
         portador.incrementarDefensa(incrementoDefensa);
-        System.out.println(this.nombre + " se cura " + curacion + " puntos de vida.");
-        System.out.println(this.nombre + " incrementa su defensa en: " + incrementoDefensa + " puntos.");
+        System.out.println(this.nombre + " cura " + curacion + " puntos de vida.");
+        System.out.println(this.nombre + " incrementa defensa en: " + incrementoDefensa + " puntos.");
     }
 }
