@@ -26,7 +26,7 @@ public class HozMortifera extends Arma {
         portador.incrementarAtaque(incrementoAtaque + incrementoVeneno);
         portador.curarse(curacion);
 
-        System.out.println(this.nombre + " incrementa su ataque en " + incrementoAtaque + " puntos.");
+        System.out.println(this.nombre + " incrementa ataque en " + incrementoAtaque + " puntos.");
         System.out.println(this.nombre + " añade un poder venenoso que aumenta " + incrementoVeneno + " puntos de ataque adicionales.");
         System.out.println(this.nombre + " cura al portador en " + curacion + " puntos de vida.");
     }
