@@ -20,6 +20,9 @@ Signorile --> Clase Heroe
 
 Valinotti --> Clase Batalla
 
+### VIDEO EXPLICATIVO
+https://drive.google.com/file/d/1TZocZtj4v0mPaI91MiZJdCqrk_m_qR1s/view?usp=drive_link
+
 ---
 
 ## 📌 INSTRUCCIONES DE JUEGO
